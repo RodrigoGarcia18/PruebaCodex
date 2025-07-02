@@ -1,27 +1,42 @@
 # PruebaCodex
 
-Esta es una aplicación web sencilla para gestionar citas médicas de vacunas.
+Aplicación web para gestión de citas de vacunación desarrollada con [Laravel](https://laravel.com/).
 
 ## Requisitos
-- Python 3
-- Dependencias en `requirements.txt`
+- PHP 8.2+
+- Composer
 
 ## Instalación
-1. Crear un entorno virtual opcionalmente.
-2. Instalar dependencias:
+1. Instalar dependencias de PHP:
    ```bash
-   pip install -r requirements.txt
+   composer install
+   ```
+2. Copiar el archivo `.env.example` dentro de `laravel-app` a `.env` y generar la clave:
+   ```bash
+   cd laravel-app
+   cp .env.example .env
+   php artisan key:generate
+   ```
+3. Crear la base de datos SQLite por defecto:
+   ```bash
+   touch database/database.sqlite
+   php artisan migrate
    ```
 
 ## Uso
-Ejecutar la aplicación con:
+Lanzar el servidor integrado:
 ```bash
-python app.py
+php artisan serve
 ```
-La web estará disponible en `http://localhost:5000`.
+La aplicación estará disponible en `http://localhost:8000`.
+
+## Características
+- Dashboard con gráficas estadísticas usando Chart.js
+- Gestión de citas de vacunación
+- Distintos roles de usuario (admin/paciente) protegidos por middleware
 
 ## Pruebas
-Para lanzar las pruebas:
+Se incluyen pruebas de Laravel ejecutables con:
 ```bash
-pytest
+php artisan test
 ```
