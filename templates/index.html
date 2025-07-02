@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Citas de Vacunación</title>
+</head>
+<body>
+  <h1>Lista de citas</h1>
+  <a href="/schedule">Nueva cita</a>
+  <table border="1">
+    <tr>
+      <th>Paciente</th>
+      <th>Vacuna</th>
+      <th>Fecha</th>
+    </tr>
+    {% for appt in appointments %}
+    <tr>
+      <td>{{ appt[1] }}</td>
+      <td>{{ appt[2] }}</td>
+      <td>{{ appt[3] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
